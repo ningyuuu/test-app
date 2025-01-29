@@ -1,5 +1,5 @@
 import Image from "next/image";
-import JumpingBox from "./components/JumpingBox";
+import GameWrapper from "./components/GameWrapper";
 
 export default function Home() {
   return (
@@ -13,9 +13,7 @@ export default function Home() {
           height={38}
           priority
         />
-        <div className="w-full">
-          <JumpingBox />
-        </div>
+        <GameWrapper />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
