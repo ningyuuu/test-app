@@ -6,6 +6,7 @@ export class MainScene extends Scene {
   private ground!: Phaser.GameObjects.Rectangle;
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
   private spaceKey!: Phaser.Input.Keyboard.Key;
+  private returnKey!: Phaser.Input.Keyboard.Key;
   private score: number = 0;
 
   constructor() {
@@ -19,7 +20,7 @@ export class MainScene extends Scene {
 
     const playerBody = this.player.body as Phaser.Physics.Arcade.Body;
     playerBody.setCollideWorldBounds(true);
-    playerBody.setGravityY(800);
+    playerBody.setGravityY(2000);
 
     // Create ground
     this.ground = this.add.rectangle(400, 380, 800, 40, 0xd1d5db);
@@ -35,12 +36,14 @@ export class MainScene extends Scene {
     if (this.input.keyboard) {
       this.cursors = this.input.keyboard.createCursorKeys();
       this.spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+      this.returnKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
     }
 
     // Add instructions text
-    this.add.text(16, 16, 'Press spacebar to jump', {
+    this.add.text(16, 16, 'Press spacebar to jump\nPress return to reset', {
       fontSize: '18px',
-      color: '#666666'
+      color: '#666666',
+      lineSpacing: 10
     });
 
     // Listen for events from React
@@ -55,9 +58,14 @@ export class MainScene extends Scene {
 
     // Handle jumping
     if (this.spaceKey.isDown && playerBody.touching.down) {
-      playerBody.setVelocityY(-500);
+      playerBody.setVelocityY(-1000);
       this.score += 10;
       EventBus.emit('score-updated', this.score);
+    }
+
+    // Handle reset
+    if (this.returnKey.isDown) {
+      this.resetGame();
     }
 
     // Optional: Add left/right movement

@@ -60,20 +60,10 @@ const PhaserGameInner = forwardRef<IRefPhaserGame, PhaserGameProps>(({ currentAc
     };
   }, [currentActiveScene]);
 
-  const handleReset = () => {
-    EventBus.emit('reset-game');
-  };
-
   return (
     <div className="flex flex-col gap-4">
       <div className="flex justify-between items-center">
         <div className="text-lg font-semibold">Score: {score}</div>
-        <button
-          onClick={handleReset}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-        >
-          Reset Game
-        </button>
       </div>
       <div id="phaser-game" className="rounded-lg overflow-hidden border-2 border-gray-200" />
     </div>

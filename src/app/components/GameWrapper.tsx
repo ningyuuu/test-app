@@ -10,7 +10,6 @@ const PhaserGameInner = dynamic(() => import('./PhaserGameInner'), {
 export default function GameWrapper() {
   return (
     <div className="w-full">
-      <h2 className="text-2xl font-bold mb-4">Phaser.js Game</h2>
       <PhaserGameInner />
     </div>
   );
