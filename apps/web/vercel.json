@@ -1,4 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "pnpm run build:single web"
+  "buildCommand": "pnpm run build:single web",
+  "installCommand": "pnpm install",
+  "framework": "nextjs"
 } 
