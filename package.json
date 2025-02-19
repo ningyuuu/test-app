@@ -16,6 +16,9 @@
     "vercel-build": "turbo run build",
     "vercel-install": "npm install"
   },
+  "dependencies": {
+    "next": "15.1.6"
+  },
   "devDependencies": {
     "turbo": "latest",
     "prettier": "^3.1.0"
