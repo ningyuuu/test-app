@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST='{"app/components/GameWrapper.tsx -> ./PhaserGameInner":{"id":6439,"files":["static/chunks/feb8fee2.d6c229a44218b871.js","static/chunks/439.c85bbeb122ebf806.js"]}}';
